@@ -28,9 +28,15 @@
 					    {{ user.username }}
 					  </li>
 				  </ul>
-				  <button class="btn btn-primary" v-on:click="getUsers">Reverse Message</button>
+				  <button class="btn btn-primary" v-on:click="getUsers" v-bind:disabled="isClicked">Get Users</button>
 				</div>
 			</div>
+		</div>
+		
+		<div id="example" data-component="example">
+			<simple-counter></simple-counter>
+		  	<simple-counter></simple-counter>
+		  	<simple-counter></simple-counter>
 		</div>
 		
 	</div>
