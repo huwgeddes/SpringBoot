@@ -5,13 +5,8 @@
 <head>
 <title>Home Page</title>
 
-<script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/vue-resource"></script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+<script type="text/javascript" src="/webjars/requirejs/2.2.0/require.js" data-main="/js/main.js"></script>
 
 </head>
 
@@ -25,7 +20,7 @@
 		
 		<div class="panel-group" style="margin-top:40px">
 			<div class="panel panel-primary">
-				<div id="app">
+				<div id="app" data-component="myvue">
 				  {{ message }}
 				  
 				  <ul>
@@ -33,14 +28,12 @@
 					    {{ user.username }}
 					  </li>
 				  </ul>
-				  <button v-on:click="getUsers">Reverse Message</button>
+				  <button class="btn btn-primary" v-on:click="getUsers">Reverse Message</button>
 				</div>
 			</div>
 		</div>
 		
 	</div>
-	
-	<script src="/js/myvue.js"></script>
 	
 </body>
 </html>
