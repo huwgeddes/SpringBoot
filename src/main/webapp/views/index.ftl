@@ -34,9 +34,10 @@
 		</div>
 		
 		<div id="example" data-component="example">
-			<simple-counter></simple-counter>
-		  	<simple-counter></simple-counter>
-		  	<simple-counter></simple-counter>
+			{{ total }}
+			<simple-counter v-bind:initial="0" v-on:increment="incrementTotal"></simple-counter>
+		  	<simple-counter v-bind:initial="0" v-on:increment="incrementTotal"></simple-counter>
+		  	<simple-counter v-bind:initial="0" v-on:increment="incrementTotal"></simple-counter>
 		</div>
 		
 	</div>
