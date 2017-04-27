@@ -14,10 +14,9 @@
 	<div class="container">
 	
 		<form action="/logout" method="get">
-			<button class="btn btn-md btn-danger btn-block" name="registration"
-				type="Submit">Logout</button>
+			<button class="btn btn-md btn-danger btn-block" name="registration" type="Submit">Logout</button>
 		</form>    
-		
+<#--		
 		<div class="panel-group" style="margin-top:40px">
 			<div class="panel panel-primary">
 				<div id="app" data-component="myvue">
@@ -39,7 +38,20 @@
 		  	<simple-counter v-bind:initial="0" v-on:increment="incrementTotal"></simple-counter>
 		  	<simple-counter v-bind:initial="0" v-on:increment="incrementTotal"></simple-counter>
 		</div>
+
+	</div>
+-->
+
+	<div id="tabDetails" class="container" data-component="views/datamanagement/tabdetails">	
+		<ul class="nav nav-pills">
+			<li class="active"><a  href="#patient-tab" data-toggle="tab">Patient</a></li>
+			<li><a href="#sample-tab" data-toggle="tab">Samples</a></li>
+		</ul>
 		
+		<div class="tab-content">
+			<patient-tab></patient-tab>
+			<sample-tab></sample-tab>
+		</div>
 	</div>
 	
 </body>
