@@ -1,12 +1,15 @@
 package solutions.systems.simple.springboot.model;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -25,42 +28,53 @@ public class Patient {
     private Date dateOfBirth;
 
     @Column(name = "nationality")
-    private String password;
+    private String nationality;
 
     @Column(name = "gender")
     @NotEmpty(message = "*Please provide a gender")
     private String gender;
+    
+	@OneToMany(cascade= CascadeType.ALL, mappedBy="id")
+	private Set<Cancer> cancers;
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getNationality() {
+		return nationality;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
 
-    public String getGender() {
-        return gender;
-    }
+	public String getGender() {
+		return gender;
+	}
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public Set<Cancer> getCancers() {
+		return cancers;
+	}
+
+	public void setCancers(Set<Cancer> cancers) {
+		this.cancers = cancers;
+	}
 
 }
