@@ -1,4 +1,6 @@
-package solutions.systems.simple.springboot.controller;
+package sample.springboot.controller;
+
+import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -9,11 +11,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import solutions.systems.simple.springboot.model.Patient;
-import solutions.systems.simple.springboot.repository.PatientRepository;
+import sample.springboot.model.Patient;
+import sample.springboot.repository.PatientRepository;
 
 @Controller
 @RequestMapping(path = "/patient")
@@ -27,6 +30,19 @@ public class PatientController {
     public @ResponseBody String addNewUser(@Valid Patient patient, BindingResult bindingResult) {
         patientRepository.save(patient);
         return "Saved";
+    }
+    
+    @GetMapping(path = "findById")
+    @ResponseBody
+    public Patient findPatientById(@RequestParam Long patientId) {
+        Patient patient = new Patient();
+        
+        patient.setDateOfBirth(new Date());
+        patient.setGender("M");
+        patient.setNationality("AUS");
+        patient.setId(patientId);
+        
+        return patient;
     }
 
     @GetMapping(path = "/all")

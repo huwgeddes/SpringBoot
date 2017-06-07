@@ -1,4 +1,4 @@
-package solutions.systems.simple.springboot.service;
+package sample.springboot.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,10 +16,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import solutions.systems.simple.springboot.model.Role;
-import solutions.systems.simple.springboot.model.User;
-import solutions.systems.simple.springboot.repository.RoleRepository;
-import solutions.systems.simple.springboot.repository.UserRepository;
+import sample.springboot.model.Role;
+import sample.springboot.model.User;
+import sample.springboot.repository.RoleRepository;
+import sample.springboot.repository.UserRepository;
 
 @Service("userService")
 public class UserService implements UserDetailsService{

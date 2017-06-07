@@ -1,5 +1,6 @@
-package solutions.systems.simple.springboot.model;
+package sample.springboot.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -18,24 +22,25 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "patient_id")
-    private int id;
+    private long id;
 
     @Column(name = "date_of_birth")
     @NotEmpty(message = "*Please provide a date of birth")
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
     @Column(name = "nationality")
-    private String password;
+    private String nationality;
 
     @Column(name = "gender")
     @NotEmpty(message = "*Please provide a gender")
     private String gender;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -47,12 +52,12 @@ public class Patient {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getPassword() {
-        return password;
+    public String getNationality() {
+        return nationality;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 
     public String getGender() {
@@ -61,6 +66,11 @@ public class Patient {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+    
+    @Transient
+    public String getFormattedDateOfBirth() {
+        return new SimpleDateFormat("dd/MM/yyyy").format(dateOfBirth);
     }
 
 }

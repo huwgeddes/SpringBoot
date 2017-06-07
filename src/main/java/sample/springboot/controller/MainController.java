@@ -1,4 +1,4 @@
-package solutions.systems.simple.springboot.controller;
+package sample.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import solutions.systems.simple.springboot.model.User;
-import solutions.systems.simple.springboot.repository.UserRepository;
+import sample.springboot.model.User;
+import sample.springboot.repository.UserRepository;
 
 @Controller
 @RequestMapping(path = "/demo")

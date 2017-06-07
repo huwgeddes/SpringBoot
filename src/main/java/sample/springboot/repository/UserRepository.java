@@ -1,8 +1,8 @@
-package solutions.systems.simple.springboot.repository;
+package sample.springboot.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import solutions.systems.simple.springboot.model.User;
+import sample.springboot.model.User;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
     

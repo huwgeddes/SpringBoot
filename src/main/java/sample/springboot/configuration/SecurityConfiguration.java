@@ -1,4 +1,4 @@
-package solutions.systems.simple.springboot.configuration;
+package sample.springboot.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -37,14 +37,13 @@
 					<div class="form-group">
 						<label for="text-input" class="sr-only">Patient Id:</label>
 						<div class="col-sm-4">
-							<input class="form-control" type="text" v-model="patientId" placeholder="Patient Id">
+							<input required class="form-control" type="text" v-model="patientId" placeholder="Patient Id">
 						</div>
 					</div>
+					<div class="col-sm-2">
+						<button v-bind:disabled="isNotNumeric" type="button" v-on:click="findPatient" class="btn btn-primary btn-block">Search</button>
+					</div>
 				</form>
-				
-				<div class="col-sm-2">
-					<button v-on:click="findPatient" class="btn btn-primary btn-block">Search</button>
-				</div>
 				
 				<div class="col-sm-2">
 			      <button v-on:click="createNewPatient" class="btn btn-primary btn-block">Create New</button>
@@ -63,7 +62,7 @@
 					</ul>
 					
 					<div class="tab-content panel">
-						<patient-tab></patient-tab>
+						<patient-tab v-bind:patient="patient"></patient-tab>
 						<sample-tab></sample-tab>
 					</div>
 				</div>

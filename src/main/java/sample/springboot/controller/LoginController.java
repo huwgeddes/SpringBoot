@@ -1,4 +1,4 @@
-package solutions.systems.simple.springboot.controller;
+package sample.springboot.controller;
 
 import javax.validation.Valid;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import solutions.systems.simple.springboot.model.User;
-import solutions.systems.simple.springboot.service.UserService;
+import sample.springboot.model.User;
+import sample.springboot.service.UserService;
 
 @Controller
 public class LoginController {

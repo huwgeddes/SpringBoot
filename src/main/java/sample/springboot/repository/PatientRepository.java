@@ -1,8 +1,8 @@
-package solutions.systems.simple.springboot.repository;
+package sample.springboot.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import solutions.systems.simple.springboot.model.Patient;
+import sample.springboot.model.Patient;
 
 public interface PatientRepository extends CrudRepository<Patient, Integer> {
     

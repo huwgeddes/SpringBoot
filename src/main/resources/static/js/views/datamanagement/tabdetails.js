@@ -10,13 +10,18 @@ var myvue = define([ 'vue', 'vue-resource', 'views/datamanagement/patient-tab', 
 		},
 		methods : {
 			findPatient : function() {
-				this.$http.get("/patient/findById/" + this.patientId).then(response => {
+				this.$http.get("/patient/findById", {params: {patientId: this.patientId}}).then(response => {
 					this.patient = response.data;
 					this.showResults = true;
 				});
 			},
 			createNewPatient : function() {
 				this.showResults = true;
+			}
+		},
+		computed: {
+			isNotNumeric: function() { //Update to use underscore.js
+				return this.patientId == '' || isNaN(parseFloat(this.patientId)) && !isFinite(this.patientId);
 			}
 		}
 	});
