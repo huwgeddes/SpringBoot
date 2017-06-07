@@ -22,7 +22,7 @@ public class MainController {
     @GetMapping(path = "/add")
     public @ResponseBody String addNewUser(@RequestParam String name, @RequestParam String username) {
         User n = new User();
-        n.setName(name);
+        n.setFirstName(name);
         n.setUsername(username);
         userRepository.save(n);
         return "Saved";

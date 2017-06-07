@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -28,23 +29,28 @@ public class User {
     
     @Column(name = "username")
     @NotEmpty(message = "*Please provide a username")
+    @NotNull
     private String username;
     
     @Column(name = "password")
     @Length(min = 5, message = "*Your password must have at least 5 characters")
     @NotEmpty(message = "*Please provide your password")
+    @NotNull
     @Transient
     private String password;
     
-    @Column(name = "name")
-    @NotEmpty(message = "*Please provide your name")
-    private String name;
+    @Column(name = "first_name")
+    @NotEmpty(message = "*Please provide your first name")
+    @NotNull
+    private String firstName;
     
     @Column(name = "last_name")
     @NotEmpty(message = "*Please provide your last name")
+    @NotNull
     private String lastName;
     
     @Column(name = "active")
+    @NotNull
     private boolean active;
     
     @ManyToMany(cascade = CascadeType.ALL)
@@ -67,12 +73,12 @@ public class User {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
