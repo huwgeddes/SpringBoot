@@ -31,7 +31,7 @@
 		<div v-cloak id="tabDetails" data-component="views/datamanagement/tabdetails">	
 			
 			<div class="row">
-				<h3 class="">Search</h3>
+				<h3 class="">Data Management</h3>
 				
 				<form>
 					<div class="form-group">

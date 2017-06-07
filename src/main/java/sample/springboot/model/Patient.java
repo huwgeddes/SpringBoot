@@ -1,7 +1,10 @@
 package sample.springboot.model;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -72,5 +75,14 @@ public class Patient {
     public String getFormattedDateOfBirth() {
         return new SimpleDateFormat("dd/MM/yyyy").format(dateOfBirth);
     }
+    
+//    @Transient
+//    public List<String> getList() {
+//        
+//        List<String> list = new ArrayList<String>();
+//        list.add("item1");
+//        list.add("item2");
+//        return list;
+//    }
 
 }

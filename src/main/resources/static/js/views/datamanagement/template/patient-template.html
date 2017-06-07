@@ -1,5 +1,11 @@
 <div class='tab-pane panel-body active' id='patient-tab'>
 	<h3>This is the patient tab</h3>
 	<p>It will eventually contain data</p>
-	<input v-model="patient.gender"></input>
+	<input type="select" v-model="listItem"></input>
+	<button v-on:click="addItemToList">Add</button>
+	<select>
+	  <option v-for="option in patient.list" v-bind:value="option">
+	    {{ option }}
+	  </option>
+	</select>
 </div>

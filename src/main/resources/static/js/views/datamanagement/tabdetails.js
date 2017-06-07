@@ -11,6 +11,7 @@ var myvue = define([ 'vue', 'vue-resource', 'views/datamanagement/patient-tab', 
 		methods : {
 			findPatient : function() {
 				this.$http.get("/patient/findById", {params: {patientId: this.patientId}}).then(response => {
+					response.data.list = [];
 					this.patient = response.data;
 					this.showResults = true;
 				});
