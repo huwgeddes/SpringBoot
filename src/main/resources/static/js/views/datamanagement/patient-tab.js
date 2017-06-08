@@ -9,7 +9,7 @@ define(['vue', 'text!views/datamanagement/template/patient-template.html'], func
 	  },
 	  methods : {
 		  addItemToList: function () {
-			  this.patient.list.push(this.listItem);
+			  this.patient.cancers.push(this.listItem);
 		  }
 	  }
 	});

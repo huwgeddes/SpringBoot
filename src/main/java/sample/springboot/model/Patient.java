@@ -1,22 +1,24 @@
 package sample.springboot.model;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import sample.springboot.enums.Gender;
 
 @Entity
 @Table(name = "patient")
@@ -32,12 +34,12 @@ public class Patient {
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
-    @Column(name = "nationality")
-    private String nationality;
-
     @Column(name = "gender")
     @NotEmpty(message = "*Please provide a gender")
-    private String gender;
+    private Gender gender;
+    
+    @OneToMany(mappedBy = "patient", cascade=CascadeType.ALL)
+    private List<Cancer> cancers;
 
     public long getId() {
         return id;
@@ -55,19 +57,11 @@ public class Patient {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getNationality() {
-        return nationality;
-    }
-
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
-
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
     
@@ -75,14 +69,13 @@ public class Patient {
     public String getFormattedDateOfBirth() {
         return new SimpleDateFormat("dd/MM/yyyy").format(dateOfBirth);
     }
-    
-//    @Transient
-//    public List<String> getList() {
-//        
-//        List<String> list = new ArrayList<String>();
-//        list.add("item1");
-//        list.add("item2");
-//        return list;
-//    }
+
+    public List<Cancer> getCancers() {
+        return cancers;
+    }
+
+    public void setCancers(List<Cancer> cancers) {
+        this.cancers = cancers;
+    }
 
 }

@@ -1,4 +1,4 @@
-var myvue = define([ 'vue', 'vue-resource', 'views/datamanagement/patient-tab', 'views/datamanagement/sample-tab' ], 
+var myvue = define([ 'vue', 'vue-resource', 'views/datamanagement/patient-tab', 'views/datamanagement/cancer-tab' ], 
 		function(Vue, VueResource) {
 	Vue.use(VueResource);
 	new Vue({
@@ -11,7 +11,9 @@ var myvue = define([ 'vue', 'vue-resource', 'views/datamanagement/patient-tab', 
 		methods : {
 			findPatient : function() {
 				this.$http.get("/patient/findById", {params: {patientId: this.patientId}}).then(response => {
-					response.data.list = [];
+					if (!response.data.cancers) {
+						response.data.cancers = [];
+					}
 					this.patient = response.data;
 					this.showResults = true;
 				});

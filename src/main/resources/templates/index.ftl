@@ -35,9 +35,9 @@
 				
 				<form>
 					<div class="form-group">
-						<label for="text-input" class="sr-only">Patient Id:</label>
+						<label for="patientId" class="sr-only">Patient Id:</label>
 						<div class="col-sm-4">
-							<input required class="form-control" type="text" v-model="patientId" placeholder="Patient Id">
+							<input required class="form-control" type="text" v-model="patientId" placeholder="Patient Id" name="patientId">
 						</div>
 					</div>
 					<div class="col-sm-2">
@@ -58,12 +58,12 @@
 				<div class="col-sm-12">
 					<ul class="nav nav-tabs">
 						<li class="active"><a  href="#patient-tab" data-toggle="tab">Patient</a></li>
-						<li><a href="#sample-tab" data-toggle="tab">Samples</a></li>
+						<li><a href="#cancer-tab" data-toggle="tab">Episodes</a></li>
 					</ul>
 					
 					<div class="tab-content panel">
 						<patient-tab v-bind:patient="patient"></patient-tab>
-						<sample-tab></sample-tab>
+						<cancer-tab v-bind:patient="patient"></cancer-tab>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,8 @@
 package sample.springboot.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import sample.springboot.enums.CancerType;
+import sample.springboot.enums.Gender;
+import sample.springboot.model.Cancer;
 import sample.springboot.model.Patient;
 import sample.springboot.repository.PatientRepository;
 
@@ -38,9 +43,18 @@ public class PatientController {
         Patient patient = new Patient();
         
         patient.setDateOfBirth(new Date());
-        patient.setGender("M");
-        patient.setNationality("AUS");
+        patient.setGender(Gender.FEMALE);
         patient.setId(patientId);
+        
+        Cancer cancer = new Cancer();
+        cancer.setId(1);
+        cancer.setCancerType(CancerType.PRIMARY);
+        cancer.setDateDiagnosed(new Date());
+        
+        List<Cancer> cancers = new ArrayList<Cancer>();
+        cancers.add(cancer);
+        
+        patient.setCancers(cancers);
         
         return patient;
     }
