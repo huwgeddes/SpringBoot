@@ -33,17 +33,17 @@
 			<div class="row">
 				<h3 class="">Data Management</h3>
 				
-				<form>
-					<div class="form-group">
-						<label for="patientId" class="sr-only">Patient Id:</label>
-						<div class="col-sm-4">
-							<input required class="form-control" type="text" v-model="patientId" placeholder="Patient Id" name="patientId">
-						</div>
+
+				<div class="form-group">
+					<label for="patientId" class="sr-only">Patient Id:</label>
+					<div class="col-sm-4">
+						<input required class="form-control" type="text" v-model="patientId" placeholder="Patient Id" name="patientId">
 					</div>
-					<div class="col-sm-2">
-						<button v-bind:disabled="isNotNumeric" type="button" v-on:click="findPatient" class="btn btn-primary btn-block">Search</button>
-					</div>
-				</form>
+				</div>
+				<div class="col-sm-2">
+					<button v-bind:disabled="isNotNumeric" type="button" v-on:click="findPatient" class="btn btn-primary btn-block">Search</button>
+				</div>
+
 				
 				<div class="col-sm-2">
 			      <button v-on:click="createNewPatient" class="btn btn-primary btn-block">Create New</button>
@@ -62,8 +62,8 @@
 					</ul>
 					
 					<div class="tab-content panel">
-						<patient-tab v-bind:patient="patient"></patient-tab>
-						<cancer-tab v-bind:patient="patient"></cancer-tab>
+						<patient-tab></patient-tab>
+						<cancer-tab></cancer-tab>
 					</div>
 				</div>
 			</div>
