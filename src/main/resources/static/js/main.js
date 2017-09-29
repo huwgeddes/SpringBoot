@@ -14,5 +14,5 @@ requirejs.config({
 
 // Load the main app module to start the app
 requirejs(['./data/datamanagement', 'bootstrap'], function(Datamanagement) {
-  new Datamanagement();
+
 });
