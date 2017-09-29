@@ -1,4 +1,4 @@
-<div class="row hidden" style="margin-top:20px" v-show="showResults">
+<div id="resultsPanel" class="row hidden" style="margin-top:20px">
 
     <h3>Results</h3>
 

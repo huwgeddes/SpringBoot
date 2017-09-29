@@ -1,24 +1,17 @@
-define(['jquery', 'mustache', './child'], function($, mustache, childComponent) {
+define(['jquery', 'mustache', './resultsPanel', './searchPanel'], function($, mustache, resultsPanel, searchPanel) {
   function Datamanagement() {
     var self = this;
 
-    self.childComponent = new childComponent(self);
+    self.resultsPanel = new resultsPanel(this);
+    self.searchPanel = new searchPanel(this);
 
-    console.log("new function");
-
-    $('.data-search').on('click', function() {
-      self.clickSearch();
-      self.childComponent.anotherClickSearch();
-    });
   }
 
   Datamanagement.prototype = {
-    clickSearch : function() {
-      console.log("Click Searched!")
-    },
+    showSearchResults : function (patient) {
+      var self = this;
+      self.resultsPanel.showSearchResults(patient);
 
-    parentMethod : function() {
-      console.log("parent method");
     }
   };
 
