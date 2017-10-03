@@ -17,28 +17,26 @@
                     <div class="form-group row">
                         <label class="col-sm-2" for="id">Patient Id:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" v-model="patient.id" name="id">
+                            <input class="form-control" type="text" name="id">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2" for="dateOfBirth">Date of Birth:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" v-model="patient.formattedDateOfBirth" name="dateOfBirth">
+                            <input class="form-control" type="text" name="dateOfBirth">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2" for="gender">Gender:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" v-model="patient.gender" name="gender">
+                            <input class="form-control" type="text" name="gender">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2" for="cancers">Episodes:</label>
                         <div class="col-sm-4">
                             <select class="form-control" name="cancers">
-                                <option v-for="cancer in patient.cancers" v-bind:value="cancer.id">
-                                    {{ cancer.cancerType }}
-                                </option>
+
                             </select>
                         </div>
                     </div>

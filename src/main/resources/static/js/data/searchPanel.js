@@ -4,14 +4,27 @@ define(['jquery', '../services/patientService' ], function($, patientService) {
     var self = this;
     self.dataManagement = dataManagement;
 
-    $('.data-search').on('click', function() {self.searchPatient(); });
+    $('.data-search').on('click', function() { self.searchPatient(); });
+
+    self.warningPanel = $("<div/>").addClass('alert alert-warning alert-dismissible');
+    self.warningPanel.append($('<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'));
   }
 
   SearchPanel.prototype = {
     searchPatient: function() {
       var self = this;
-      patientService.getPatient("12345").then(function(patient) {
+      var patientId = $('#patientId').val();
+      $(".alert").remove();
+
+      patientService.getPatient(patientId).done(function(patient) {
         self.dataManagement.showSearchResults(patient);
+
+      }).fail(function() {
+
+        var alert = self.warningPanel.clone(false);
+        alert.append("Patient not found");
+        $('#patientId').after(alert);
+
       });
     }
   };

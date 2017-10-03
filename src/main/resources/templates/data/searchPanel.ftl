@@ -5,7 +5,7 @@
         <div class="form-group">
             <label for="patientId" class="sr-only">Patient Id:</label>
             <div class="col-sm-4">
-                <input required class="form-control" type="text" v-model="patientId" placeholder="Patient Id" name="patientId">
+                <input required id="patientId" class="form-control" type="text" placeholder="Patient Id">
             </div>
         </div>
         <div class="col-sm-2">
