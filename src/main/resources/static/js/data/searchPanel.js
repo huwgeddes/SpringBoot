@@ -21,6 +21,7 @@ define(['jquery', '../services/patientService' ], function($, patientService) {
 
       }).fail(function() {
 
+        self.dataManagement.hideSearchResults();
         var alert = self.warningPanel.clone(false);
         alert.append("Patient not found");
         $('#patientId').after(alert);

@@ -11,7 +11,10 @@ define(['jquery', 'mustache', './resultsPanel', './searchPanel'], function($, mu
     showSearchResults : function (patient) {
       var self = this;
       self.resultsPanel.showSearchResults(patient);
-
+    },
+    hideSearchResults : function () {
+      var self = this;
+      self.resultsPanel.hideSearchResults();
     }
   };
 

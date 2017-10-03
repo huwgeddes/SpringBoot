@@ -50,9 +50,15 @@ public class PatientController {
         cancer.setId(1);
         cancer.setCancerType(CancerType.PRIMARY);
         cancer.setDateDiagnosed(new Date());
+
+        Cancer cancerTwo = new Cancer();
+        cancerTwo.setId(2);
+        cancerTwo.setCancerType(CancerType.SECONDARY);
+        cancerTwo.setDateDiagnosed(new Date());
         
         List<Cancer> cancers = new ArrayList<Cancer>();
         cancers.add(cancer);
+        cancers.add(cancerTwo);
         
         patient.setCancers(cancers);
         
