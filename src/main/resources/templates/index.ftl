@@ -15,10 +15,9 @@
 
 		<#include "./common/navbar.ftl">
 
-		<div>
-            <#include "data/searchPanel.ftl">
-			<#include "data/resultsPanel.ftl">
-		</div>
+        <#include "data/searchPanel.ftl">
+        <#include "data/resultsPanel.ftl">
+
 	</div>
 </body>
 </html>

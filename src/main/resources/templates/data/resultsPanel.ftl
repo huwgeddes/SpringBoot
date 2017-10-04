@@ -1,4 +1,4 @@
-<div id="resultsPanel" class="row hidden" style="margin-top:20px">
+<div id="resultsPanel" class="row hidden">
 
     <div class="col-sm-12">
 
