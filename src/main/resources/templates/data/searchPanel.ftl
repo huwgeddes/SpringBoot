@@ -1,5 +1,9 @@
 <div class="row">
-    <h3 class="">Data Management</h3>
+    <h1 class="text-center">Data Managment</h1>
+</div>
+
+<div class="row">
+    <#--<h3 class="">Data Management</h3>-->
 
     <form>
         <div class="form-group">

@@ -25,16 +25,18 @@ define(['jquery', 'mustache', 'dirtyForms'], function($, mustache) {
       var self = this;
       self.resultsData = patient;
 
+      // render patient tab
       var rendered = mustache.render(self.patientTemplate, patient);
       $("#patient-tab").html(rendered);
 
+      // render cancer tab
       var selectRendered = mustache.render(self.cancerSelectTemplate, patient);
       $(".cancer-select").html(selectRendered);
-
-      self.setUpPatientDirtyForm();
-      // self.setUpCancerDirtyForm();
-
       $(".cancer-select").change();
+
+      // set up the dirty forms
+      self.setUpPatientDirtyForm();
+      self.setUpCancerDirtyForm();
 
       $('#resultsPanel').removeClass("hidden");
 
@@ -53,6 +55,7 @@ define(['jquery', 'mustache', 'dirtyForms'], function($, mustache) {
 
       var cancerData = mustache.render(self.cancerDataTemplate, selectCancer);
       $(".cancer-data").html(cancerData);
+      $('.cancerForm').find('[type="reset"],[type="button"]').attr('disabled', 'disabled');
 
     },
     hideSearchResults: function() {
@@ -76,6 +79,8 @@ define(['jquery', 'mustache', 'dirtyForms'], function($, mustache) {
 
     },
     setUpCancerDirtyForm: function() {
+
+      $('.cancerForm').dirtyForms();
 
       $('.cancerForm').find('[type="reset"],[type="button"]').attr('disabled', 'disabled');
       $('.cancerForm').on('dirty.dirtyforms clean.dirtyforms', function (ev) {

@@ -17,7 +17,10 @@ define(['jquery', '../services/patientService' ], function($, patientService) {
       $(".alert").remove();
 
       patientService.getPatient(patientId).done(function(patient) {
+        $('h1').addClass("animated slideOutRight");
         self.dataManagement.showSearchResults(patient);
+        setTimeout(function() {$('h1').addClass("hidden")}, 500);
+
 
       }).fail(function() {
 
