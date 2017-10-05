@@ -1,10 +1,9 @@
-define(['jquery', 'mustache', './resultsPanel', './searchPanel'], function($, mustache, resultsPanel, searchPanel) {
+define(['jquery', './resultsPanel', './searchPanel'], function($, resultsPanel, searchPanel) {
   function Datamanagement() {
     var self = this;
 
     self.resultsPanel = new resultsPanel(this);
     self.searchPanel = new searchPanel(this);
-
   }
 
   Datamanagement.prototype = {

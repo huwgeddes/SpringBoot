@@ -1,98 +1,28 @@
-define(['jquery', 'mustache', 'dirtyForms'], function($, mustache) {
+define(['jquery', './resultsTab/patientTab', './resultsTab/cancerTab'], function($, patientTab, cancerTab) {
 
   function ResultsPanel(dataManagement) {
     var self = this;
     self.dataManagement = dataManagement;
     self.resultsData = null;
 
-    self.patientTemplate = $("#patient-tab").html();
-    mustache.parse(self.patientTemplate);
-
-    self.cancerSelectTemplate = $(".cancer-select").html();
-    mustache.parse(self.cancerSelectTemplate);
-
-    self.cancerDataTemplate = $(".cancer-data").html();
-    mustache.parse(self.cancerDataTemplate);
-
-
-    $(".cancer-select").on("change", function() { self.onCancerSelect(); });
-
+    self.patientTab = new patientTab(this);
+    self.cancerTab = new cancerTab(this);
 
   }
 
   ResultsPanel.prototype = {
     showSearchResults: function(patient) {
-      var self = this;
-      self.resultsData = patient;
+      let self = this;
 
-      // render patient tab
-      var rendered = mustache.render(self.patientTemplate, patient);
-      $("#patient-tab").html(rendered);
-
-      // render cancer tab
-      var selectRendered = mustache.render(self.cancerSelectTemplate, patient);
-      $(".cancer-select").html(selectRendered);
-      $(".cancer-select").change();
-
-      // set up the dirty forms
-      self.setUpPatientDirtyForm();
-      self.setUpCancerDirtyForm();
+      self.patientTab.showSearchResults(patient);
+      self.cancerTab.showSearchResults(patient);
 
       $('#resultsPanel').removeClass("hidden");
 
     },
-    onCancerSelect : function() {
-      var self = this;
-
-      var selectedId = $(".cancer-select").val();
-      var selectCancer = null;
-
-      self.resultsData.cancers.forEach(function(can) {
-          if (can.id == selectedId) {
-            selectCancer = can;
-          }
-      });
-
-      var cancerData = mustache.render(self.cancerDataTemplate, selectCancer);
-      $(".cancer-data").html(cancerData);
-      $('.cancerForm').find('[type="reset"],[type="button"]').attr('disabled', 'disabled');
-
-    },
     hideSearchResults: function() {
-      var self = this;
+      let self = this;
       $('#resultsPanel').addClass("hidden");
-    },
-    setUpPatientDirtyForm: function() {
-
-      $(".patientForm").dirtyForms();
-
-      $('.patientForm').find('[type="reset"],[type="button"]').attr('disabled', 'disabled');
-      $('.patientForm').on('dirty.dirtyforms clean.dirtyforms', function (ev) {
-        var $form = $(ev.target);
-        var $submitResetButtons = $form.find('[type="reset"],[type="button"]');
-        if (ev.type === 'dirty') {
-          $submitResetButtons.removeAttr('disabled');
-        } else {
-          $submitResetButtons.attr('disabled', 'disabled');
-        }
-      });
-
-    },
-    setUpCancerDirtyForm: function() {
-
-      $('.cancerForm').dirtyForms();
-
-      $('.cancerForm').find('[type="reset"],[type="button"]').attr('disabled', 'disabled');
-      $('.cancerForm').on('dirty.dirtyforms clean.dirtyforms', function (ev) {
-        var $form = $(ev.target);
-        var $submitResetButtons = $form.find('[type="reset"],[type="button"]');
-        if (ev.type === 'dirty') {
-          $submitResetButtons.removeAttr('disabled');
-        } else {
-          $submitResetButtons.attr('disabled', 'disabled');
-        }
-      });
-
     }
   };
 
