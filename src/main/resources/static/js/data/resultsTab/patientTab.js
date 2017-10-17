@@ -4,8 +4,6 @@ define(['jquery', 'mustache', 'dirtyForms'], function($, mustache) {
     var self = this;
     self.resultsPanel = resultsPanel;
 
-    self.patientForm = $(".patientForm");
-
     self.patientTemplate = $("#patient-tab").html();
     mustache.parse(self.patientTemplate);
 
@@ -26,10 +24,10 @@ define(['jquery', 'mustache', 'dirtyForms'], function($, mustache) {
     setUpPatientDirtyForm: function() {
       let self = this;
 
-      self.patientForm.dirtyForms();
+      $(".patientForm").dirtyForms();
 
-      self.patientForm.find('[type="reset"],[type="button"]').attr('disabled', 'disabled');
-      self.patientForm.on('dirty.dirtyforms clean.dirtyforms', function (ev) {
+      $(".patientForm").find('[type="reset"],[type="button"]').attr('disabled', 'disabled');
+      $(".patientForm").on('dirty.dirtyforms clean.dirtyforms', function (ev) {
         let $form = $(ev.target);
         let $submitResetButtons = $form.find('[type="reset"],[type="button"]');
         if (ev.type === 'dirty') {

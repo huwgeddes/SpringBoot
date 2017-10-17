@@ -56,10 +56,10 @@ define(['jquery', 'mustache', 'dirtyForms'], function($, mustache) {
     setUpCancerDirtyForm: function() {
       let self = this;
 
-      self.cancerForm.dirtyForms();
+      $('.cancerForm').dirtyForms();
 
-      self.cancerForm.find('[type="reset"],[type="button"]').attr('disabled', 'disabled');
-      self.cancerForm.on('dirty.dirtyforms clean.dirtyforms', function (ev) {
+      $('.cancerForm').find('[type="reset"],[type="button"]').attr('disabled', 'disabled');
+      $('.cancerForm').on('dirty.dirtyforms clean.dirtyforms', function (ev) {
         let $form = $(ev.target);
         let $submitResetButtons = $form.find('[type="reset"],[type="button"]');
         if (ev.type === 'dirty') {
