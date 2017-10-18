@@ -1,4 +1,4 @@
-define(['vue', 'text!views/datamanagement/template/patient-template.html'],
+define(['vue', 'text!./template/patient-template.html'],
   function(Vue, template) {
 	Vue.component('patient-tab', {
 	  template: template,
@@ -7,10 +7,10 @@ define(['vue', 'text!views/datamanagement/template/patient-template.html'],
         return this.$store.state.patient;
       }
 	  },
-	  data : function () {
-		  return {
-		  }
-	  },
+	  // data : function () {
+		 //  return {
+		 //  }
+	  // },
 	  methods : {
 		  addItemToList: function () {
 			  // this.patient.cancers.push(this.listItem);

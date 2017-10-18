@@ -1,8 +1,9 @@
-var myvue = define(['vue', 'vue-resource', 'views/datamanagement/store', 'views/datamanagement/patient-tab', 'views/datamanagement/cancer-tab'],
+define(['vue', 'vue-resource', './store', './patient-tab', './cancer-tab'],
   function (Vue, VueResource, store) {
     Vue.use(VueResource);
-    new Vue({
-      el: '#tabDetails',
+
+    var datamanagement = new Vue({
+      el: '#datamanagement',
       store,
       data: {
         showResults: false,
@@ -25,4 +26,6 @@ var myvue = define(['vue', 'vue-resource', 'views/datamanagement/store', 'views/
         }
       }
     });
+
+    return datamanagement;
   });
