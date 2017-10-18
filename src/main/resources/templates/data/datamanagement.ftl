@@ -1,8 +1,11 @@
 <div v-cloak id="datamanagement">
 
+
     <div class="row">
-        <div class="col-sm-12">
-            <h1 class="text-center" style="margin-bottom: 25px">Data Managment</h1>
+        <div  class="col-sm-12">
+            <transition name="slide">
+                <h1 v-if="!showResults" class="text-center" v-leave="showResults" style="margin-bottom: 25px">Data Managment</h1>
+            </transition>
         </div>
     </div>
 

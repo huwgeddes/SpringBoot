@@ -11,6 +11,17 @@
             [v-cloak] {
                 display: none;
             }
+
+            .slide-leave-active {
+                transition: all 1s ease-in-out;
+            }
+
+            .slide-leave-to
+                /* .slide-fade-leave-active below version 2.1.8 */ {
+                transform: translateX(80%);
+                opacity: 0;
+            }
+
         </style>
 
     </head>
