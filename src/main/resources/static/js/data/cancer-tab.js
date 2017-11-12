@@ -11,6 +11,12 @@ define(['vue', 'text!./template/cancer-template.html'],
       return {
         selected: {}
       }
+    },
+    methods: {
+      newCancer() {
+        this.$store.commit('newCancer');
+        this.selected = this.$store.getters.lastCancer;
+      }
     }
   });
 });
